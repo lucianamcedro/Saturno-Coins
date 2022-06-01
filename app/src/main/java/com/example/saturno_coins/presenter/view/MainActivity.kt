@@ -4,12 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.saturno_coins.presenter.adapters.CoinItemAdapter
-import com.example.saturno_coins.databinding.ActivityMainBinding
-import com.example.saturno_coins.domain.model.CoinItem
-import com.example.saturno_coins.presenter.viewmodel.CoinViewModel
 import com.example.saturno_coins.data.repository.CoinRepository
 import com.example.saturno_coins.data.service.ClientService.Companion.coinClientService
+import com.example.saturno_coins.databinding.ActivityMainBinding
+import com.example.saturno_coins.domain.model.CoinItem
+import com.example.saturno_coins.presenter.adapters.CoinItemAdapter
+import com.example.saturno_coins.presenter.viewmodel.CoinViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinViewModelFactory
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.listRecyclerCoin.adapter = coinListAdapter
         coinAndObserve()
+
+        binding.buttonStar.setOnClickListener {
+            val intent = Intent(this, FavoriteActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun coinAndObserve() {
