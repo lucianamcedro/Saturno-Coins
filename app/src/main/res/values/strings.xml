@@ -12,4 +12,5 @@
     <string name="botao_lista_de_moedas">Botão para listar moedas</string>
     <string name="money">$</string>
     <string name="description_coin">Informações das moedas</string>
+    <string name="app_splash">Moeda Digital</string>
 </resources>
