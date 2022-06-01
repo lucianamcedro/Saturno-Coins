@@ -23,7 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presenter.view.CoinDetailsActivity" />
+        <activity
+            android:name=".presenter.view.CoinDetailsActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".presenter.view.FavoriteActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
