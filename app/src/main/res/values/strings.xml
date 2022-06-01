@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">saturno-coins</string>
+    <string name="titulo_coin">BTC</string>
+    <string name="voltar_anterior">Voltar</string>
+    <string name="valor_coin">$ 31.010.20</string>
+    <string name="button_adicionar">ADICIONAR</string>
+    <string name="volumes_neg">volumes negociados</string>
+    <string name="ultima_hr">ultima hora</string>
+    <string name="ultima_mes">ultima mes</string>
+    <string name="ultima_ano">ultima ano</string>
+    <string name="botao_moedas_favoritas">Botão para listar moedas favoritas</string>
+    <string name="botao_lista_de_moedas">Botão para listar moedas</string>
+    <string name="money">$</string>
+    <string name="description_coin">Informações das moedas</string>
+</resources>

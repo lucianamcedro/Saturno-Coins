@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".presenter.view.CoinDetailsActivity">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/tela_divisao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.57" />
+
+    <View
+        android:id="@+id/container_details"
+        android:layout_width="match_parent"
+        android:layout_height="419dp"
+        android:background="#8D9562"
+        app:layout_constraintBottom_toBottomOf="@id/tela_divisao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/icon_voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/voltar_tela"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/voltar_anterior"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:fontFamily="@font/roboto_black"
+        app:layout_constraintStart_toStartOf="@+id/icon_voltar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titulo_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/titulo_coin"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:fontFamily="@font/roboto_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/container_details"
+        app:layout_constraintTop_toTopOf="@id/voltar_tela" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/ic_baseline_star_24"
+        app:layout_constraintStart_toEndOf="@id/titulo_details"
+        app:layout_constraintTop_toBottomOf="@id/titulo_details" />
+
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/bitcoin_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_details" />
+
+    <TextView
+        android:id="@+id/valor_coin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/valor_coin"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:fontFamily="@font/roboto_light"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_logo" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_adicionar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/button_style"
+        android:text="@string/button_adicionar"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valor_coin" />
+
+    <TextView
+        android:id="@+id/text_valores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/volumes_neg"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:fontFamily="@font/roboto_light"
+        app:layout_constraintTop_toBottomOf="@+id/container_details" />
+
+    <TextView
+        android:id="@+id/text_hora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:text="@string/ultima_hr"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_light"
+        app:layout_constraintTop_toBottomOf="@+id/text_valores"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/valor_hora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="$123.456.78"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_light"
+        app:layout_constraintTop_toBottomOf="@+id/text_valores"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_mes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/ultima_mes"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_light"
+        app:layout_constraintTop_toBottomOf="@+id/text_hora"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/valor_mes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="$123.456.78"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_light"
+        app:layout_constraintTop_toBottomOf="@+id/valor_hora"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_ano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:text="@string/ultima_ano"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_light"
+        app:layout_constraintTop_toBottomOf="@+id/text_mes"
+        app:layout_constraintStart_toStartOf="parent"  />
+
+    <TextView
+        android:id="@+id/valor_ano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:text="$123.456.78"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_light"
+        app:layout_constraintTop_toBottomOf="@+id/valor_mes"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/coin_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/botao_lista_de_moedas"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/button_main"
+                    android:layout_width="205dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top"
+                    android:backgroundTint="@android:color/black"
+                    android:padding="100dp"
+                    android:src="@drawable/ic_menu_1"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/txt_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom|center"
+                    android:text="Moedas"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/favorite_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/botao_moedas_favoritas"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/button_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@android:color/black"
+                    android:padding="100dp"
+                    android:src="@drawable/ic_menu_2"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/txt_favorite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom|center"
+                    android:text="Favoritos"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
