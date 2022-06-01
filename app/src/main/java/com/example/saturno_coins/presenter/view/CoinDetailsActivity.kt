@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.saturno_coins.databinding.ActivityCoinDetailsBinding
 import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.viewmodel.CoinDetailsViewModel
@@ -46,6 +47,12 @@ class CoinDetailsActivity : AppCompatActivity() {
         binding.valorHora.text = coin[0].volume_1hrs_usd.toString()
         binding.valorMes.text = coin[0].volume_1mth_usd.toString()
         binding.valorAno.text = coin[0].volume_1day_usd.toString()
+
+        Glide
+            .with(binding.root.context)
+            .load(coin[0].getImageCoin())
+            .centerCrop()
+            .into(binding.imageLogo)
     }
 
     private fun getCoinDetails() {

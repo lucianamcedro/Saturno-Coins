@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:src="@drawable/ic_baseline_arrow_back_ios_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:gravity="center"
         android:text="@string/voltar_anterior"
         android:textColor="@color/white"
@@ -73,8 +73,8 @@
 
     <ImageView
         android:id="@+id/image_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_marginTop="50dp"
         android:src="@drawable/bitcoin_icon"
         app:layout_constraintEnd_toEndOf="parent"
