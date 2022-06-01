@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.saturno_coins.databinding.CoinListItemBinding
 import com.example.saturno_coins.domain.model.CoinItem
 
@@ -28,6 +29,13 @@ class CoinItemAdapter(
         private val onClickListener: (coin: CoinItem) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(coin: CoinItem) {
+
+            Glide
+                .with(binding.root.context)
+                .load(coin.getImageCoin())
+                .centerCrop()
+                .into(binding.imgcoin)
+
             binding.nameCoin.text = coin.name
             binding.priceUsd.text = coin.price_usd.toString()
 

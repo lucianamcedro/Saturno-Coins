@@ -4,7 +4,7 @@ import java.io.Serializable
 
 data class CoinItem(
     val asset_id: String,
-    val id_icon: String,
+    var id_icon: String,
     val data_end: String,
     val data_orderbook_end: String,
     val data_orderbook_start: String,
@@ -20,4 +20,14 @@ data class CoinItem(
     val volume_1day_usd: Double,
     val volume_1hrs_usd: Double,
     val volume_1mth_usd: Double
-) : Serializable
+) : Serializable {
+
+    fun getImageCoin(): String {
+        if (id_icon == null) {
+            return "https://www.iconpacks.net/icons/2/free-coin-dollar-icon-2686-thumb.png"
+        } else {
+            id_icon = id_icon?.replace("-".toRegex(), "")
+            return "https://s3.eu-central-1.amazonaws.com//bbxt-static-icons/type-id/png_512/$id_icon.png"
+        }
+    }
+}
