@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Saturnocoins">
         <activity
+            android:name=".presenter.view.SplashScreenActivity"/>
+
+        <activity
             android:name=".presenter.view.MainActivity"
             android:exported="true">
             <intent-filter>
