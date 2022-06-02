@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
             goToCoinDetails(coin)
         })
     }
+
     private val coinRepository = CoinRepository(coinClientService)
     private val coinFactory = CoinViewModelFactory(coinRepository)
     private val coinViewModel by viewModels<CoinViewModel> { coinFactory }
@@ -38,6 +39,22 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    // private fun search(searchView: SearchView) {
+
+    //    searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+    //     override fun onQueryTextSubmit(query: String): Boolean {
+    //    dismissKeyboard(searchView)
+    //      searchView.clearFocus()
+    //      coinViewModel.searchCoins(query)
+    //    return true
+    // }
+
+    //  override fun onQueryTextChange(newText: String): Boolean {
+    //       return false
+    //   }
+    //  })
+    //  }
 
     private fun coinAndObserve() {
         coinViewModel.getCoinListFromRetrofit()
