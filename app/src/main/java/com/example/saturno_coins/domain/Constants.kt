@@ -12,11 +12,4 @@ class Constants {
         // "?apikey=7521D960-087E-4FD3-8493-25453D063919"
         const val API_KEY = "?apikey=BB17B0AE-AB0D-4FF0-87FD-307417905725"
     }
-
-    @SuppressLint("SimpleDateFormat")
-    fun getDate(): String {
-        val date = Calendar.getInstance().time
-        val format = SimpleDateFormat("dd MM yyyy")
-        return format.format(date)
-    }
 }

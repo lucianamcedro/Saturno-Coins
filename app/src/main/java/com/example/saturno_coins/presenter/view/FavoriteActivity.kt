@@ -28,9 +28,16 @@ class FavoriteActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+        getCoinFavorites()
     }
 
-    private fun bindFavorites(coin: CoinItem) {
-        binding.tvAppName.text = coin.name
+    private fun bindFavorites(coin: List<CoinItem>) {
+        binding.tvAppName.text = coin[0].name
+    }
+
+    private fun getCoinFavorites() {
+        coinFavoriteViewModel.coinFavorites.observe(this) { coinFavorites ->
+            bindFavorites(coinFavorites)
+        }
     }
 }
