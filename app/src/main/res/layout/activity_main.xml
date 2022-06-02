@@ -43,6 +43,7 @@
         android:contextClickable="true"
         android:iconifiedByDefault="false"
         android:inputType="text"
+        android:contentDescription="@string/search_content"
         android:outlineSpotShadowColor="#FFFFFF"
         android:queryHint="search"
         android:searchIcon="@drawable/ic_baseline_search_24"
@@ -99,6 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="bottom|center"
+                    android:contentDescription="@string/data_atual"
                     android:text="Moedas"
                     android:textColor="@android:color/white" />
             </LinearLayout>

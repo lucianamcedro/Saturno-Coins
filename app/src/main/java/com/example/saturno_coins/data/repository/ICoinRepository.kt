@@ -6,4 +6,5 @@ import retrofit2.Call
 interface ICoinRepository {
     suspend fun getCoins(): Call<List<CoinItem>>
     suspend fun getDetailsCoin(coinId: String): Call<List<CoinItem>>
+    suspend fun getFavoritesCoin(): Call<List<CoinItem>>
 }
