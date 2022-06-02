@@ -45,10 +45,8 @@ class CoinDetailsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun bindDetails(coin: List<CoinItem>) {
-
         binding.tituloDetails.text = coin[0].name
         binding.valorCoin.text = coin[0].price_usd.toString()
-        binding.tituloDetails.text = coin[0].name
         binding.valorHora.text = coin[0].volume_1hrs_usd.toString()
         binding.valorMes.text = coin[0].volume_1mth_usd.toString()
         binding.valorAno.text = coin[0].volume_1day_usd.toString()
