@@ -8,25 +8,29 @@
 
     <TextView
         android:id="@+id/tv_app_name"
-        android:layout_width="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_splash"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/tv_date"
-        android:layout_width="wrap_content"
+        android:layout_margin="16dp"
+        android:paddingTop="10dp"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="01/06/2022"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/tv_app_name"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        tools:text="data"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="@id/tv_app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/md_divider"

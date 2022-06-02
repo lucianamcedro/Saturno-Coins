@@ -11,6 +11,9 @@ import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.adapters.CoinItemAdapter
 import com.example.saturno_coins.presenter.viewmodel.CoinViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinViewModelFactory
+import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private val coinListAdapter by lazy {
@@ -37,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FavoriteActivity::class.java)
             startActivity(intent)
         }
+
+        val date = Calendar.getInstance().time
+        val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale("pt-BR"))
+        binding.dataCoinTopBar.text = dateTimeFormat.format(date)
     }
 
     private fun coinAndObserve() {
