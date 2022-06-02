@@ -30,14 +30,11 @@ class FavoriteActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-<<<<<<< HEAD
         getCoinFavorites()
-=======
 
         val date = Calendar.getInstance().time
         val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale("pt-BR"))
         binding.tvDate.text = dateTimeFormat.format(date)
->>>>>>> 0b3789093f63c460293a00ad4f8b7b7fe369fed4
     }
 
     private fun bindFavorites(coin: List<CoinItem>) {
