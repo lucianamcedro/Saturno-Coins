@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
             goToCoinDetails(coin)
         })
     }
+
     private val coinRepository = CoinRepository(coinClientService)
     private val coinFactory = CoinViewModelFactory(coinRepository)
     private val coinViewModel by viewModels<CoinViewModel> { coinFactory }

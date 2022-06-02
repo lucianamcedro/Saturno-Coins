@@ -19,4 +19,10 @@ class CoinRepository(private val coinClient: IClientService) : ICoinRepository {
             coinClient.getDetailsCoins(coinId)
         }
     }
+
+    override suspend fun getFavoritesCoin(): Call<List<CoinItem>> {
+        return withContext(Dispatchers.IO) {
+            coinClient.getFavoritesCoins()
+        }
+    }
 }

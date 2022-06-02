@@ -17,6 +17,7 @@ class CoinItemAdapter(
         val binding = CoinListItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
+
         return CoinItemViewHolder(binding, onClickListener)
     }
 
