@@ -40,6 +40,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // private fun search(searchView: SearchView) {
+
+    //    searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+    //     override fun onQueryTextSubmit(query: String): Boolean {
+    //    dismissKeyboard(searchView)
+    //      searchView.clearFocus()
+    //      coinViewModel.searchCoins(query)
+    //    return true
+    // }
+
+    //  override fun onQueryTextChange(newText: String): Boolean {
+    //       return false
+    //   }
+    //  })
+    //  }
+
     private fun coinAndObserve() {
         coinViewModel.getCoinListFromRetrofit()
         coinViewModel.coin.observe(this) { Coin ->

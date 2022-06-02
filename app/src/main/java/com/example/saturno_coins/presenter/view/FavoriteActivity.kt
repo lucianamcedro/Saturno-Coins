@@ -24,23 +24,13 @@ class FavoriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        goToCoinList()
-
         binding.buttonMain.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
 
-    private fun bindFavorites(coin: List<CoinItem>) {
-        binding.tvAppName.text = coin[0].name
-    }
-
-    private fun goToCoinList() {
-        val coin: CoinItem = intent.getSerializableExtra("coin") as CoinItem
-        coinFavoriteViewModel.getCoinFromRetrofit(coin.asset_id)
-        coinFavoriteViewModel.coinFavorites.observe(this) { coinFavorite ->
-            bindFavorites(coinFavorite)
-        }
+    private fun bindFavorites(coin: CoinItem) {
+        binding.tvAppName.text = coin.name
     }
 }

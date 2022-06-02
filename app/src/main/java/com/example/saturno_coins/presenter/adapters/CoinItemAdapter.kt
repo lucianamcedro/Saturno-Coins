@@ -39,6 +39,7 @@ class CoinItemAdapter(
 
             binding.nameCoin.text = coin.name
             binding.priceUsd.text = coin.price_usd.toString()
+            binding.idCoin.text = coin.asset_id
 
             binding.root.setOnClickListener {
                 onClickListener.invoke(coin)

@@ -13,4 +13,13 @@
     <string name="money">$</string>
     <string name="description_coin">Informações das moedas</string>
     <string name="app_splash">Moeda Digital</string>
+
+    //Strings Content Description
+    <string name="moeda_digital">Moeda Digital</string>
+    <string name="data_atual">02/06/2022</string>
+    <string name="search_content">Pesquisar Moeda Digital</string>
+    <string name="valor_hora">$123.456.78</string>
+    <string name="valor_mes">$123.456.78</string>
+    <string name="valor_ano">$123.456.78</string>
+    <string name="favoritos">Favoritos</string>
 </resources>
