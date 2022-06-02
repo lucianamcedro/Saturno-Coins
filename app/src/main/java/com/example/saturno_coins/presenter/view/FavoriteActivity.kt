@@ -13,13 +13,10 @@ class FavoriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        goToCoinList()
-    }
 
-    private fun goToCoinList() {
         binding.buttonMain.setOnClickListener {
-            val coinDetailsActivity = Intent(this, CoinDetailsActivity::class.java)
-            startActivity(coinDetailsActivity)
+            val intent = Intent(this, CoinDetailsActivity::class.java)
+            startActivity(intent)
         }
     }
 }
