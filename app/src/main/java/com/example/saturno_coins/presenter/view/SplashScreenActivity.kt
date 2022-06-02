@@ -1,14 +1,15 @@
 package com.example.saturno_coins.presenter.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.view.animation.AnimationUtils
-import android.widget.TextView
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.example.saturno_coins.R
+import androidx.core.os.postDelayed
 import com.example.saturno_coins.databinding.ActivitySplashScreenBinding
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding
 
@@ -17,11 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val backgroundTxt: TextView = findViewById(R.id.tv_app_name)
-        val sideAnimation = AnimationUtils.loadAnimation(this, R.anim.slide)
-        backgroundTxt.startAnimation(sideAnimation)
-
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }, 3000)
