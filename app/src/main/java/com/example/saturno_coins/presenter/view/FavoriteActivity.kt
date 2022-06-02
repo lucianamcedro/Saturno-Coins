@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.saturno_coins.data.repository.CoinRepository
 import com.example.saturno_coins.data.service.ClientService.Companion.coinClientService
 import com.example.saturno_coins.databinding.ActivityCoinFavoritesBinding
+import java.text.SimpleDateFormat
+import java.util.*
 import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.viewmodel.CoinFavoriteViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinFavoriteViewModelFactory
@@ -28,6 +30,10 @@ class FavoriteActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        val date = Calendar.getInstance().time
+        val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale("pt-BR"))
+        binding.tvDate.text = dateTimeFormat.format(date)
     }
 
     private fun bindFavorites(coin: CoinItem) {
