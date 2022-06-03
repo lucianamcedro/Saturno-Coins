@@ -21,7 +21,7 @@
             android:layout_margin="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/name_coin"
-            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintHorizontal_bias="0.313"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,13 +29,13 @@
             android:id="@+id/name_coin"
             android:layout_width="127dp"
             android:layout_height="26dp"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            android:layout_marginTop="8dp"
             android:contentDescription="@string/titulo_coin"
             android:text="@string/titulo_coin"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.312"
+            app:layout_constraintHorizontal_bias="0.313"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,19 +53,6 @@
             app:layout_constraintTop_toBottomOf="@+id/name_coin"
             app:layout_constraintVertical_bias="0.0"
             tools:text="13" />
-        <TextView
-            android:id="@+id/money"
-            android:layout_width="14dp"
-            android:layout_height="21dp"
-            android:text="@string/money"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/price_usd"
-            app:layout_constraintEnd_toStartOf="@+id/price_usd"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/id_coin"
-            app:layout_constraintTop_toTopOf="@+id/price_usd"
-            app:layout_constraintVertical_bias="0.25" />
 
         <TextView
             android:id="@+id/price_usd"
@@ -85,13 +72,12 @@
 
         <ImageView
             android:id="@+id/favorite_star"
-            android:layout_width="14dp"
-            android:layout_height="20dp"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/name_coin"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.28"
+            app:layout_constraintVertical_bias="0.2"
             app:srcCompat="@drawable/ic_baseline_star_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,11 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.saturno_coins.data.repository.CoinRepository
 import com.example.saturno_coins.data.service.ClientService.Companion.coinClientService
 import com.example.saturno_coins.databinding.ActivityCoinFavoritesBinding
-import java.text.SimpleDateFormat
-import java.util.*
 import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.viewmodel.CoinFavoriteViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinFavoriteViewModelFactory
+import java.text.SimpleDateFormat
+import java.util.*
 
 class FavoriteActivity : AppCompatActivity() {
     private val binding by lazy {
