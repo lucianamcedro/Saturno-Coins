@@ -2,6 +2,7 @@ package com.example.saturno_coins.presenter.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.saturno_coins.data.repository.CoinRepository
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     private val coinFactory = CoinViewModelFactory(coinRepository)
     private val coinViewModel by viewModels<CoinViewModel> { coinFactory }
 
+    private lateinit var searchView: SearchView
+
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -46,6 +49,26 @@ class MainActivity : AppCompatActivity() {
         val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale("pt-BR"))
         binding.dataCoinTopBar.text = dateTimeFormat.format(date)
     }
+
+    // private fun initSearchBar(){
+    //  with(binding.searchBar){
+    //       val searchItem = binding.searchBar
+    //    searchView = searchItem.actionView as SearchView
+    //    searchView.isIconified = false
+
+    //   searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+    //      override fun onQueryTextSubmit(query: String?): Boolean {
+    //        val searchString = searchView.query.toString()
+    //        coinViewModel.doSearch(searchString)
+    //      searchView.clearFocus()
+    //      return true
+    //   }
+
+    //     override fun onQueryTextChange(newText: String?): Boolean {
+    //              newText?.let { viewModel.doSearch(it) }
+    //            return true
+    //       }
+//    }
 
     // private fun search(searchView: SearchView) {
 

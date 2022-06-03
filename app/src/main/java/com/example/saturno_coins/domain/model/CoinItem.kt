@@ -1,8 +1,11 @@
 package com.example.saturno_coins.domain.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
-
+@Entity(tableName = "CoinItem")
 data class CoinItem(
+    @PrimaryKey(autoGenerate = true)
     val asset_id: String,
     var id_icon: String,
     val data_end: String,
