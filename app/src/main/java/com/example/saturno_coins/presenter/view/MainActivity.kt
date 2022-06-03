@@ -2,6 +2,7 @@ package com.example.saturno_coins.presenter.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Filter
 import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -22,11 +23,10 @@ class MainActivity : AppCompatActivity() {
             goToCoinDetails(coin)
         })
     }
+
     private val coinRepository = CoinRepository(coinClientService)
     private val coinFactory = CoinViewModelFactory(coinRepository)
     private val coinViewModel by viewModels<CoinViewModel> { coinFactory }
-
-    private lateinit var searchView: SearchView
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -47,43 +47,18 @@ class MainActivity : AppCompatActivity() {
         val date = Calendar.getInstance().time
         val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale("pt-BR"))
         binding.dataCoinTopBar.text = dateTimeFormat.format(date)
+
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                Filter(query)
+                return true
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                Filter(newText)
+                return true
+            }
+        })
     }
-
-    // private fun initSearchBar(){
-    //  with(binding.searchBar){
-    //       val searchItem = binding.searchBar
-    //    searchView = searchItem.actionView as SearchView
-    //    searchView.isIconified = false
-
-    //   searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-    //      override fun onQueryTextSubmit(query: String?): Boolean {
-    //        val searchString = searchView.query.toString()
-    //        coinViewModel.doSearch(searchString)
-    //      searchView.clearFocus()
-    //      return true
-    //   }
-
-    //     override fun onQueryTextChange(newText: String?): Boolean {
-    //              newText?.let { viewModel.doSearch(it) }
-    //            return true
-    //       }
-//    }
-
-    // private fun search(searchView: SearchView) {
-
-    //    searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-    //     override fun onQueryTextSubmit(query: String): Boolean {
-    //    dismissKeyboard(searchView)
-    //      searchView.clearFocus()
-    //      coinViewModel.searchCoins(query)
-    //    return true
-    // }
-
-    //  override fun onQueryTextChange(newText: String): Boolean {
-    //       return false
-    //   }
-    //  })
-    //  }
 
     private fun coinAndObserve() {
         coinViewModel.getCoinListFromRetrofit()
@@ -91,7 +66,6 @@ class MainActivity : AppCompatActivity() {
             setupAdapter(Coin)
         }
     }
-
     private fun setupAdapter(list: List<CoinItem>) {
         coinListAdapter.submitList(list)
     }
@@ -100,5 +74,10 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, CoinDetailsActivity::class.java)
         intent.putExtra("coin", coin)
         startActivity(intent)
+    }
+
+    private fun Filter(nome: String?){
+        if(nome != null)
+            coinViewModel.coin.value?.filter { it.name.lowercase().contains(nome.lowercase()) }?.let { setupAdapter(it) }
     }
 }

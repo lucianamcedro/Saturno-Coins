@@ -31,6 +31,9 @@
         <activity
             android:name=".presenter.view.FavoriteActivity"
             android:exported="true"/>
+        <activity
+            android:name=".presenter.view.CoinErroActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
