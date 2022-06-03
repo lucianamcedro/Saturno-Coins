@@ -21,8 +21,9 @@
     <string name="valor_hora">$123.456.78</string>
     <string name="valor_mes">$123.456.78</string>
     <string name="valor_ano">$123.456.78</string>
-    <string name="favoritos">Favoritos</string>
     <string name="erro_texto">"Não foi dessa vez!"</string>
     <string name="string_button_tentar">Tente outra vez</string>
     <string name="string_msg_erro">ERRO!</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="moedas">Moedas</string>
 </resources>

@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale("pt-BR"))
         binding.dataCoinTopBar.text = dateTimeFormat.format(date)
 
-        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Filter(query)
                 return true
@@ -76,8 +76,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun Filter(nome: String?){
-        if(nome != null)
+    private fun Filter(nome: String?) {
+        if (nome != null)
             coinViewModel.coin.value?.filter { it.name.lowercase().contains(nome.lowercase()) }?.let { setupAdapter(it) }
     }
 }

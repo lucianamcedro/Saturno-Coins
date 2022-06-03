@@ -13,6 +13,8 @@ import com.example.saturno_coins.databinding.ActivityCoinDetailsBinding
 import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.viewmodel.CoinDetailsViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinDetailsViewModelFactory
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class CoinDetailsActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -45,11 +47,21 @@ class CoinDetailsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun bindDetails(coin: List<CoinItem>) {
+
+        val decimal = DecimalFormat("$ ###,###.##")
+        decimal.roundingMode = RoundingMode.UP
+
+        val valueTotal = decimal.format(coin[0].price_usd)
+        val valueHrs = decimal.format(coin[0].volume_1hrs_usd)
+        val valueMes = decimal.format(coin[0].volume_1mth_usd)
+        val valueDay = decimal.format(coin[0].volume_1day_usd)
+
+
         binding.tituloDetails.text = coin[0].name
-        binding.valorCoin.text = coin[0].price_usd.toString()
-        binding.valorHora.text = coin[0].volume_1hrs_usd.toString()
-        binding.valorMes.text = coin[0].volume_1mth_usd.toString()
-        binding.valorAno.text = coin[0].volume_1day_usd.toString()
+        binding.valorCoin.text = valueTotal.toString()
+        binding.valorHora.text = valueHrs.toString()
+        binding.valorMes.text = valueMes.toString()
+        binding.valorAno.text = valueDay.toString()
 
         Glide
             .with(binding.root.context)
