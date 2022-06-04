@@ -1,23 +1,46 @@
 package com.example.saturno_coins.data.Dao
 
 import android.content.Context
+import androidx.room.Room
 import com.example.saturno_coins.domain.model.CoinItem
 
 class CoinDaoRepository {
-    private lateinit var context: Context
-    private val mDataBase = CoinDatabase.getDatabase(context).coinDAO()
-
-    private fun AdicionarFavorite(coin: CoinItem) {
-        return mDataBase.save(coin)
-    }
-    private fun deleteFavorite(coin: CoinItem) {
-        mDataBase.delete(coin)
-    }
-    private fun listFavorite(): List<CoinItem> {
-        return mDataBase.getInvited()
+    companion object {
+        private lateinit var context: Context
+        fun setContext(contextCoin: Context) {
+            context = contextCoin
+        }
     }
 
-    private fun loadFavorite(id: String): CoinItem {
-        return mDataBase.load(id)
+    fun loadDatabase(id: String): CoinItem {
+        val databaseCoin = Room
+            .databaseBuilder(context, CoinDatabase::class.java, "digital_coin")
+            .allowMainThreadQueries()
+            .build()
+        return databaseCoin.coinDao().load(id)
+    }
+
+    fun addFavorite(coin: CoinItem) {
+        val databaseCoin = Room
+            .databaseBuilder(context, CoinDatabase::class.java, "digital_coin")
+            .allowMainThreadQueries()
+            .build()
+        databaseCoin.coinDao().save(coin)
+    }
+
+    fun deleteFavorite(coinId: CoinItem) {
+        val databaseCoin = Room
+            .databaseBuilder(context, CoinDatabase::class.java, "digital_coin")
+            .allowMainThreadQueries()
+            .build()
+        return databaseCoin.coinDao().delete(coinId)
+    }
+
+    fun listFavorite(): List<CoinItem> {
+        val databaseCoin = Room
+            .databaseBuilder(context, CoinDatabase::class.java, "digital_coin")
+            .allowMainThreadQueries()
+            .build()
+        return databaseCoin.coinDao().getInvited()
     }
 }

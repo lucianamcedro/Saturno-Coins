@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun coinAndObserve() {
         coinViewModel.getCoinListFromRetrofit()
-        coinViewModel.coin.observe(this) { Coin ->
+        coinViewModel.coinList.observe(this) { Coin ->
             setupAdapter(Coin)
         }
     }
@@ -78,6 +78,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun Filter(nome: String?) {
         if (nome != null)
-            coinViewModel.coin.value?.filter { it.name.lowercase().contains(nome.lowercase()) }?.let { setupAdapter(it) }
+            coinViewModel.coinList.value?.filter { it.name.lowercase().contains(nome.lowercase()) }?.let { setupAdapter(it) }
     }
 }
