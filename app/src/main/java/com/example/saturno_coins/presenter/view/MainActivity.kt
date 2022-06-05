@@ -2,7 +2,6 @@ package com.example.saturno_coins.presenter.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Filter
 import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +12,6 @@ import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.adapters.CoinItemAdapter
 import com.example.saturno_coins.presenter.viewmodel.CoinViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinViewModelFactory
-import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -50,11 +48,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                Filter(query)
+                filter(query)
                 return true
             }
             override fun onQueryTextChange(newText: String?): Boolean {
-                Filter(newText)
+                filter(newText)
                 return true
             }
         })
@@ -62,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun coinAndObserve() {
         coinViewModel.getCoinListFromRetrofit()
-        coinViewModel.coin.observe(this) { Coin ->
+        coinViewModel.coinList.observe(this) { Coin ->
             setupAdapter(Coin)
         }
     }
@@ -76,8 +74,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun Filter(nome: String?) {
+    private fun filter(nome: String?) {
         if (nome != null)
-            coinViewModel.coin.value?.filter { it.name.lowercase().contains(nome.lowercase()) }?.let { setupAdapter(it) }
+            coinViewModel.coinList.value?.filter { it.name.lowercase().contains(nome.lowercase()) }?.let { setupAdapter(it) }
     }
 }

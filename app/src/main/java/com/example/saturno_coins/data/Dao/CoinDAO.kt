@@ -13,7 +13,7 @@ interface CoinDAO {
     fun save(coin: CoinItem)
 
     @Delete
-    fun delete(coin: CoinItem)
+    fun delete(coinId: CoinItem)
 
     @Query("SELECT * FROM CoinItem WHERE asset_id = :id")
     fun load(id: String): CoinItem

@@ -65,7 +65,7 @@
     <ImageView
         android:id="@+id/coin_icon_favorite"
         android:src="@drawable/bitcoin_icon"
-        android:layout_width="30dp"
+        android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintRight_toRightOf="@id/card_favorite"
         app:layout_constraintTop_toTopOf="@id/card_favorite"
