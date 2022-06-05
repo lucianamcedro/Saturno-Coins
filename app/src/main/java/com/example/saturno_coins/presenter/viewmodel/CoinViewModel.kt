@@ -18,7 +18,7 @@ class CoinViewModel(private val coinRepository: ICoinRepository) : ViewModel() {
                 val coin = coinRepository.getCoins().await()
                 _coin.value = coin
             } catch (e: Exception) {
-                Log.e("ERROR", "Erro: Ocorreu um erro ao carregar",)
+                Log.e("ERROR", "Erro: Ocorreu um erro ao carregar")
             }
         }
     }
