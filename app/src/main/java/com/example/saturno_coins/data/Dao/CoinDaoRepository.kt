@@ -14,7 +14,7 @@ class CoinDaoRepository {
 
     fun loadDatabase(id: String): CoinItem {
         val databaseCoin = Room
-            .databaseBuilder(context, CoinDatabase::class.java, "digital_coin")
+            .databaseBuilder(context, CoinDatabase::class.java, "coin")
             .allowMainThreadQueries()
             .build()
         return databaseCoin.coinDao().load(id)
@@ -22,7 +22,7 @@ class CoinDaoRepository {
 
     fun addFavorite(coin: CoinItem) {
         val databaseCoin = Room
-            .databaseBuilder(context, CoinDatabase::class.java, "digital_coin")
+            .databaseBuilder(context, CoinDatabase::class.java, "coin")
             .allowMainThreadQueries()
             .build()
         databaseCoin.coinDao().save(coin)
@@ -30,7 +30,7 @@ class CoinDaoRepository {
 
     fun deleteFavorite(coinId: CoinItem) {
         val databaseCoin = Room
-            .databaseBuilder(context, CoinDatabase::class.java, "digital_coin")
+            .databaseBuilder(context, CoinDatabase::class.java, "coin")
             .allowMainThreadQueries()
             .build()
         return databaseCoin.coinDao().delete(coinId)
@@ -38,7 +38,7 @@ class CoinDaoRepository {
 
     fun listFavorite(): List<CoinItem> {
         val databaseCoin = Room
-            .databaseBuilder(context, CoinDatabase::class.java, "digital_coin")
+            .databaseBuilder(context, CoinDatabase::class.java, "coin")
             .allowMainThreadQueries()
             .build()
         return databaseCoin.coinDao().getInvited()

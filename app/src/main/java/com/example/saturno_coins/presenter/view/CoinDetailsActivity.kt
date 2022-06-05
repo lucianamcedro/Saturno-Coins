@@ -16,7 +16,6 @@ import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.viewmodel.CoinDetailsViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinDetailsViewModelFactory
 import java.math.RoundingMode
-import java.nio.file.Files.delete
 import java.text.DecimalFormat
 
 class CoinDetailsActivity : AppCompatActivity(), View.OnClickListener {

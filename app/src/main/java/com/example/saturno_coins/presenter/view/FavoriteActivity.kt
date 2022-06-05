@@ -2,14 +2,12 @@ package com.example.saturno_coins.presenter.view
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.saturno_coins.data.repository.CoinRepository
-import com.example.saturno_coins.data.service.ClientService.Companion.coinClientService
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.saturno_coins.data.Dao.CoinDaoRepository
 import com.example.saturno_coins.databinding.ActivityCoinFavoritesBinding
 import com.example.saturno_coins.domain.model.CoinItem
-import com.example.saturno_coins.presenter.viewmodel.CoinFavoriteViewModel
-import com.example.saturno_coins.presenter.viewmodel.CoinFavoriteViewModelFactory
+import com.example.saturno_coins.presenter.adapters.CoinFavoriteAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -18,32 +16,53 @@ class FavoriteActivity : AppCompatActivity() {
         ActivityCoinFavoritesBinding.inflate(layoutInflater)
     }
 
-    private val coinFavoriteRepository = CoinRepository(coinClientService)
-    private val coinFavoriteFactory = CoinFavoriteViewModelFactory(coinFavoriteRepository)
-    private val coinFavoriteViewModel by viewModels<CoinFavoriteViewModel> { coinFavoriteFactory }
+    private val coinAdapter by lazy {
+        CoinFavoriteAdapter(onClickListener = { coin ->
+            getCoinFavorites(coin)
+        })
+    }
+
+    private val coinDao = CoinDaoRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        CoinDaoRepository.setContext(this)
 
         binding.buttonMain.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-        getCoinFavorites()
 
         val date = Calendar.getInstance().time
         val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale("pt-BR"))
         binding.tvDate.text = dateTimeFormat.format(date)
+
+        listFavoriteActivity()
+
+        binding.listRecyclerFavorites.adapter = coinAdapter
+
+        startView()
     }
 
-    private fun bindFavorites(coin: List<CoinItem>) {
-        binding.tvAppName.text = coin[0].name
+    private fun startView() {
+        val favoriteRecyclerView = binding.listRecyclerFavorites
+        favoriteRecyclerView.adapter = coinAdapter
+        favoriteRecyclerView.layoutManager = GridLayoutManager(this, 2)
     }
 
-    private fun getCoinFavorites() {
-        coinFavoriteViewModel.coinFavorites.observe(this) { coinFavorites ->
-            bindFavorites(coinFavorites)
-        }
+    fun listFavoriteActivity() {
+        val result = coinDao.listFavorite()
+        setListAdapter(result)
+    }
+
+    private fun setListAdapter(list: List<CoinItem>) {
+        coinAdapter.submitList(list)
+    }
+
+    private fun getCoinFavorites(coin: CoinItem) {
+        val intent = Intent(this, CoinDetailsActivity::class.java)
+        intent.putExtra("coin", coin)
+        startActivity(intent)
     }
 }
