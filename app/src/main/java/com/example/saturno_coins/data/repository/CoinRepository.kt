@@ -6,7 +6,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Call
 
-class CoinRepository(private val coinClient: IClientService) : ICoinRepository {
+class CoinRepository(
+    private val coinClient: IClientService
+) : ICoinRepository {
     override suspend fun getCoins(): Call<List<CoinItem>> {
         return withContext(Dispatchers.IO) {
             coinClient.getBreeds()
@@ -16,12 +18,6 @@ class CoinRepository(private val coinClient: IClientService) : ICoinRepository {
     override suspend fun getDetailsCoin(coinId: String): Call<List<CoinItem>> {
         return withContext(Dispatchers.IO) {
             coinClient.getDetailsCoins(coinId)
-        }
-    }
-
-    override suspend fun getFavoritesCoin(): Call<List<CoinItem>> {
-        return withContext(Dispatchers.IO) {
-            coinClient.getFavoritesCoins()
         }
     }
 }

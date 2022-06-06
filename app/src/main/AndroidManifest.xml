@@ -32,7 +32,7 @@
             android:name=".presenter.view.FavoriteActivity"
             android:exported="true"/>
         <activity
-            android:name=".presenter.view.CoinErroActivity"
+            android:name=".presenter.view.CoinErrorActivity"
             android:exported="true"/>
     </application>
 

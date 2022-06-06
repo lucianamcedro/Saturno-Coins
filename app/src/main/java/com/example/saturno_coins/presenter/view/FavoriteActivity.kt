@@ -30,8 +30,8 @@ class FavoriteActivity : AppCompatActivity() {
         CoinDaoRepository.setContext(this)
 
         binding.buttonMain.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            val listIntent = Intent(this, MainActivity::class.java)
+            startActivity(listIntent)
         }
 
         val date = Calendar.getInstance().time
@@ -61,8 +61,8 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun getCoinFavorites(coin: CoinItem) {
-        val intent = Intent(this, CoinDetailsActivity::class.java)
-        intent.putExtra("coin", coin)
-        startActivity(intent)
+        val favoriteIntent = Intent(this, CoinDetailsActivity::class.java)
+        favoriteIntent.putExtra("coin", coin)
+        startActivity(favoriteIntent)
     }
 }
