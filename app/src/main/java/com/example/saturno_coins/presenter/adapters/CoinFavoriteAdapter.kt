@@ -46,8 +46,6 @@ class CoinFavoriteAdapter(private val onClickListener: (coin: CoinItem) -> Unit)
             val roundingPrice = decimalFormat.format(coin.price_usd)
             binding.coinValueFavorite.text = roundingPrice.toString()
 
-            binding.coinValueFavorite.text = coin.price_usd.toString()
-
             Glide.with(binding.root.context)
                 .load(coin.getImageCoin())
                 .centerCrop()
