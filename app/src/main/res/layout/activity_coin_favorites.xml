@@ -44,14 +44,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_recycler_favorites"
-        android:layout_width="match_parent"
-        android:layout_height="550dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/list_item_favorite_coin"
-        tools:itemCount="7"
+        android:layout_width="409dp"
+        android:layout_height="586dp"
         android:paddingTop="15dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/md_divider"
-        tools:ignore="MissingConstraints"/>
+        tools:ignore="MissingConstraints"
+        tools:itemCount="7"
+        tools:listitem="@layout/list_item_favorite_coin" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
 
