@@ -24,7 +24,9 @@ class CoinViewModel(private val coinRepository: ICoinRepository) : ViewModel() {
     }
 }
 
-class CoinViewModelFactory(private val coinRepository: CoinRepository) : ViewModelProvider.Factory {
+class CoinViewModelFactory(
+    private val coinRepository: CoinRepository
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return CoinViewModel(coinRepository) as T
     }

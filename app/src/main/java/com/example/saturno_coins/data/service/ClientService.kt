@@ -7,9 +7,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ClientService {
     companion object {
         private lateinit var retrofit: Retrofit
+
         private fun getRetrofitInstance(): Retrofit {
-            if (!::retrofit.isInitialized) {
-                retrofit = Retrofit.Builder()
+            if (!Companion::retrofit.isInitialized) {
+                retrofit = Retrofit
+                    .Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()

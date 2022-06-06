@@ -51,11 +51,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/data_coin_top_bar" />
 
-    <!-- <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbars="none"> -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_recycler_coin"
         android:layout_width="match_parent"
@@ -67,7 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchBar"
         tools:listitem="@layout/coin_list_item" />
-    <!-- </androidx.core.widget.NestedScrollView> -->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

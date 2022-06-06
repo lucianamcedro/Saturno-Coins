@@ -20,8 +20,15 @@ class CoinFavoriteAdapter(private val onClickListener: (coin: CoinItem) -> Unit)
         viewType: Int,
     ): CoinFavoriteAdapter.CoinFavoriteItemViewHolder {
         val binding =
-            ListItemFavoriteCoinBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CoinFavoriteItemViewHolder(binding, onClickListener, parent.context)
+            ListItemFavoriteCoinBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+
+        return CoinFavoriteItemViewHolder(
+            binding, onClickListener, parent.context
+        )
     }
 
     override fun onBindViewHolder(
@@ -50,6 +57,7 @@ class CoinFavoriteAdapter(private val onClickListener: (coin: CoinItem) -> Unit)
                 .load(coin.getImageCoin())
                 .centerCrop()
                 .into(binding.coinIconFavorite)
+
             binding.root.setOnClickListener {
                 onClickListener.invoke(coin)
             }

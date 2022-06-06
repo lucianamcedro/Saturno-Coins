@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.saturno_coins.data.Dao.CoinDaoRepository
 import com.example.saturno_coins.data.repository.CoinRepository
 import com.example.saturno_coins.data.service.ClientService.Companion.coinClientService
 import com.example.saturno_coins.databinding.ActivityMainBinding
@@ -16,6 +17,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    private val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+
     private val coinListAdapter by lazy {
         CoinItemAdapter(onClickListener = { coin ->
             goToCoinDetails(coin)
@@ -26,15 +31,13 @@ class MainActivity : AppCompatActivity() {
     private val coinFactory = CoinViewModelFactory(coinRepository)
     private val coinViewModel by viewModels<CoinViewModel> { coinFactory }
 
-    private val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        CoinDaoRepository.setContext(this)
 
         binding.listRecyclerCoin.adapter = coinListAdapter
+
         coinAndObserve()
 
         binding.buttonStar.setOnClickListener {
@@ -51,6 +54,7 @@ class MainActivity : AppCompatActivity() {
                 filter(query)
                 return true
             }
+
             override fun onQueryTextChange(newText: String?): Boolean {
                 filter(newText)
                 return true
@@ -64,18 +68,21 @@ class MainActivity : AppCompatActivity() {
             setupAdapter(Coin)
         }
     }
+
     private fun setupAdapter(list: List<CoinItem>) {
         coinListAdapter.submitList(list)
     }
 
     private fun goToCoinDetails(coin: CoinItem) {
-        val intent = Intent(this, CoinDetailsActivity::class.java)
-        intent.putExtra("coin", coin)
-        startActivity(intent)
+        val detailsIntent = Intent(this, CoinDetailsActivity::class.java)
+        detailsIntent.putExtra("coin", coin)
+        startActivity(detailsIntent)
     }
 
     private fun filter(nome: String?) {
         if (nome != null)
-            coinViewModel.coinList.value?.filter { it.name.lowercase().contains(nome.lowercase()) }?.let { setupAdapter(it) }
+            coinViewModel.coinList.value?.filter {
+                it.name.lowercase().contains(nome.lowercase())
+            }?.let { setupAdapter(it) }
     }
 }

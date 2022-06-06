@@ -40,13 +40,13 @@ class CoinDetailsActivity : AppCompatActivity(), View.OnClickListener {
         binding.voltarTela.setOnClickListener(this)
 
         binding.buttonMain.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            val listIntent = Intent(this, MainActivity::class.java)
+            startActivity(listIntent)
         }
 
         binding.buttonStar.setOnClickListener {
-            val intent = Intent(this, FavoriteActivity::class.java)
-            startActivity(intent)
+            val favoriteIntent = Intent(this, FavoriteActivity::class.java)
+            startActivity(favoriteIntent)
         }
     }
 
@@ -57,18 +57,21 @@ class CoinDetailsActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun bindDetails(coin: List<CoinItem>) {
 
+        binding.tituloDetails.text = coin[0].name
+
         val decimal = DecimalFormat("$ ###,###.##")
         decimal.roundingMode = RoundingMode.UP
 
         val valueTotal = decimal.format(coin[0].price_usd)
-        val valueHrs = decimal.format(coin[0].volume_1hrs_usd)
-        val valueMes = decimal.format(coin[0].volume_1mth_usd)
-        val valueDay = decimal.format(coin[0].volume_1day_usd)
-
-        binding.tituloDetails.text = coin[0].name
         binding.valorCoin.text = valueTotal.toString()
+
+        val valueHrs = decimal.format(coin[0].volume_1hrs_usd)
         binding.valorHora.text = valueHrs.toString()
+
+        val valueMes = decimal.format(coin[0].volume_1mth_usd)
         binding.valorMes.text = valueMes.toString()
+
+        val valueDay = decimal.format(coin[0].volume_1day_usd)
         binding.valorAno.text = valueDay.toString()
 
         Glide
@@ -86,7 +89,13 @@ class CoinDetailsActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun insertCoinTest(coin: CoinItem) {
+    override fun onClick(view: View) {
+        if (view.id == R.id.icon_voltar || view.id == R.id.voltar_tela) {
+            finish()
+        }
+    }
+
+    fun addFavoriteCoin(coin: CoinItem) {
         binding.buttonAdicionar.setOnClickListener {
             coinDao.addFavorite(coin)
             getFavorite()
@@ -95,7 +104,7 @@ class CoinDetailsActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun delete(coin: CoinItem) {
+    fun removeFavoriteCoin(coin: CoinItem) {
         binding.buttonAdicionar.text = "REMOVER"
         binding.buttonAdicionar.setOnClickListener {
             coinDao.deleteFavorite(coin)
@@ -105,22 +114,16 @@ class CoinDetailsActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    override fun onClick(view: View) {
-        if (view.id == R.id.icon_voltar || view.id == R.id.voltar_tela) {
-            finish()
-        }
-    }
-
     fun getFavorite() {
         val coin: CoinItem = intent.getSerializableExtra("coin") as CoinItem
         val favorite = coinDao.loadDatabase(coin.asset_id)
-        var visibilidade = View.GONE
+        var visibility = View.GONE
         if (favorite != null) {
-            visibilidade = View.VISIBLE
-            delete(coin)
+            visibility = View.VISIBLE
+            removeFavoriteCoin(coin)
         } else {
-            insertCoinTest(coin)
+            addFavoriteCoin(coin)
         }
-        binding.ivFavoriteStar.visibility = visibilidade
+        binding.ivFavoriteStar.visibility = visibility
     }
 }

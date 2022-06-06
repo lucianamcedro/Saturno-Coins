@@ -7,7 +7,9 @@ import com.example.saturno_coins.domain.model.CoinItem
 import kotlinx.coroutines.launch
 import retrofit2.await
 
-class CoinDetailsViewModel(private val coinRepository: ICoinRepository) : ViewModel() {
+class CoinDetailsViewModel(
+    private val coinRepository: ICoinRepository
+) : ViewModel() {
     private val _coinDetails = MutableLiveData<List<CoinItem>>()
     val coinDetails: LiveData<List<CoinItem>> = _coinDetails
 
@@ -19,8 +21,9 @@ class CoinDetailsViewModel(private val coinRepository: ICoinRepository) : ViewMo
     }
 }
 
-class CoinDetailsViewModelFactory(private val coinRepository: CoinRepository) :
-    ViewModelProvider.Factory {
+class CoinDetailsViewModelFactory(
+    private val coinRepository: CoinRepository
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return CoinDetailsViewModel(coinRepository) as T
     }
