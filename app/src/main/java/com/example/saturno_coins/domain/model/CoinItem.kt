@@ -8,7 +8,7 @@ import java.io.Serializable
 data class CoinItem(
     @PrimaryKey()
     val asset_id: String,
-    var id_icon: String,
+    var id_icon: String?,
     val data_end: String,
     val data_orderbook_end: String,
     val data_orderbook_start: String,
