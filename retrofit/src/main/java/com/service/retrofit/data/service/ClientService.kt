@@ -1,6 +1,6 @@
-package com.example.saturno_coins.data.service
+package com.service.retrofit.data.service
 
-import com.example.saturno_coins.domain.Constants.Companion.BASE_URL
+import com.service.retrofit.domain.Constants.Companion.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

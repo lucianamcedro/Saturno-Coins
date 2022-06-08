@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.saturno_coins.data.Dao.CoinDaoRepository
 import com.example.saturno_coins.databinding.ActivityCoinFavoritesBinding
-import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.adapters.CoinFavoriteAdapter
+import com.service.retrofit.domain.model.CoinItem
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.saturno_coins.databinding.ListItemFavoriteCoinBinding
-import com.example.saturno_coins.domain.model.CoinItem
+import com.service.retrofit.domain.model.CoinItem
 import java.math.RoundingMode
 import java.text.DecimalFormat
 

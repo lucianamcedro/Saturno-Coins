@@ -6,13 +6,13 @@ import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.saturno_coins.data.Dao.CoinDaoRepository
-import com.example.saturno_coins.data.repository.CoinRepository
-import com.example.saturno_coins.data.service.ClientService.Companion.coinClientService
 import com.example.saturno_coins.databinding.ActivityMainBinding
-import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.adapters.CoinItemAdapter
 import com.example.saturno_coins.presenter.viewmodel.CoinViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinViewModelFactory
+import com.service.retrofit.data.repository.CoinRepository
+import com.service.retrofit.data.service.ClientService.Companion.coinClientService
+import com.service.retrofit.domain.model.CoinItem
 import java.text.SimpleDateFormat
 import java.util.*
 

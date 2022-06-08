@@ -1,4 +1,4 @@
-package com.example.saturno_coins.domain.model
+package com.service.retrofit.domain.model
 
 sealed class CoinApiResult<T> {
     class Loading<T> : CoinApiResult<T>()

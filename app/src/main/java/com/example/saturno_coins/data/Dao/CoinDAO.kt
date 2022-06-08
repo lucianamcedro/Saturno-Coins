@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.saturno_coins.domain.model.CoinItem
+import com.service.retrofit.domain.model.CoinItem
 
 @Dao
 interface CoinDAO {

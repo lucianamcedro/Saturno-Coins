@@ -1,7 +1,7 @@
-package com.example.saturno_coins.data.repository
+package com.service.retrofit.data.repository
 
-import com.example.saturno_coins.data.service.IClientService
-import com.example.saturno_coins.domain.model.CoinItem
+import com.service.retrofit.data.service.IClientService
+import com.service.retrofit.domain.model.CoinItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Call

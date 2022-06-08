@@ -1,4 +1,4 @@
-package com.example.saturno_coins.domain.model
+package com.service.retrofit.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

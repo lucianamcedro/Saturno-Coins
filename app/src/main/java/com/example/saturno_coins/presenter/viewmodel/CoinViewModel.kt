@@ -2,9 +2,9 @@ package com.example.saturno_coins.presenter.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.saturno_coins.data.repository.CoinRepository
-import com.example.saturno_coins.data.repository.ICoinRepository
-import com.example.saturno_coins.domain.model.CoinItem
+import com.service.retrofit.data.repository.CoinRepository
+import com.service.retrofit.data.repository.ICoinRepository
+import com.service.retrofit.domain.model.CoinItem
 import kotlinx.coroutines.launch
 import retrofit2.await
 

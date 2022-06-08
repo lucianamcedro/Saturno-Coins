@@ -2,7 +2,7 @@ package com.example.saturno_coins.data.Dao
 
 import android.content.Context
 import androidx.room.Room
-import com.example.saturno_coins.domain.model.CoinItem
+import com.service.retrofit.domain.model.CoinItem
 
 class CoinDaoRepository {
     companion object {

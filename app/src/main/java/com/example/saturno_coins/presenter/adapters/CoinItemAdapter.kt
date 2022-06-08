@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.saturno_coins.data.Dao.CoinDaoRepository
 import com.example.saturno_coins.databinding.CoinListItemBinding
-import com.example.saturno_coins.domain.model.CoinItem
+import com.service.retrofit.domain.model.CoinItem
 import java.math.RoundingMode
 import java.text.DecimalFormat
 

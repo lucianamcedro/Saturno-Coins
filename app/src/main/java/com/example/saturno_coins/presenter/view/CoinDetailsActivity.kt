@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.saturno_coins.R
 import com.example.saturno_coins.data.Dao.CoinDaoRepository
-import com.example.saturno_coins.data.repository.CoinRepository
-import com.example.saturno_coins.data.service.ClientService.Companion.coinClientService
 import com.example.saturno_coins.databinding.ActivityCoinDetailsBinding
-import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.viewmodel.CoinDetailsViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinDetailsViewModelFactory
+import com.service.retrofit.data.repository.CoinRepository
+import com.service.retrofit.data.service.ClientService.Companion.coinClientService
+import com.service.retrofit.domain.model.CoinItem
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
