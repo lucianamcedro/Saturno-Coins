@@ -1,6 +1,5 @@
 package com.example.saturno_coins.presenter.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.example.saturno_coins.data.repository.CoinRepository
 import com.example.saturno_coins.data.repository.ICoinRepository
@@ -14,43 +13,13 @@ class CoinViewModel(private val coinRepository: ICoinRepository) : ViewModel() {
 
     fun getCoinListFromRetrofit() {
         viewModelScope.launch {
-            try {
-                val coinList = coinRepository.getCoins().await()
-                _coinList.value = coinList
-            } catch (e: Exception) {
-                Log.e("ERROR", "Erro: Ocorreu um erro ao carregar a sua lista de moedas.")
-            }
+            val coinList = coinRepository.getCoins().await()
+            _coinList.value = coinList
+
+            // Log.e("ERROR", "Erro: Ocorreu um erro ao carregar a sua lista de moedas.")
         }
     }
 }
-
-// private fun callListCoin() {
-//  val call = ClientService.coinRetrofitApi()
-//    .getList()
-// call.enqueue(object : Callback<List<CoinItem>> {
-//  override fun onResponse(call: Call<List<CoinItem>>, response: Response<List<CoinItem>>) {
-//    if (response.isSuccessful)
-//      response.body()?.forEach {
-//        ResultList.add(it)
-//  }else {response.errorBody()?.let {
-// when(response.code()){
-//  400 -> ("error")
-// 401 -> ("error")
-// 403 -> ("error")
-// 429 -> ("error")
-// 550 -> ("error ")
-// else -> ("error")
-// }
-// }
-
-// }
-// coin.postValue(ResultList)
-// }
-
-// override fun onFailure(call: Call<List<CoinItem>>, t: Throwable) {
-//  coin.postValue(null)
-// }
-// })
 
 class CoinViewModelFactory(
     private val coinRepository: CoinRepository

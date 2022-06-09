@@ -3,6 +3,7 @@ package com.example.saturno_coins.presenter.view
 import android.content.Intent
 import android.os.Bundle
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.saturno_coins.data.Dao.CoinDaoRepository
@@ -13,6 +14,8 @@ import com.example.saturno_coins.domain.model.CoinItem
 import com.example.saturno_coins.presenter.adapters.CoinItemAdapter
 import com.example.saturno_coins.presenter.viewmodel.CoinViewModel
 import com.example.saturno_coins.presenter.viewmodel.CoinViewModelFactory
+import okhttp3.Call
+import okhttp3.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -62,6 +65,46 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+  /*  override fun onResponse(
+        call: retrofit2.Call<List<CoinItem>>?,
+        response: retrofit2.Response<List<CoinItem>>?
+    ) {
+        if (response?.code() == 400) {
+            Toast.makeText(this, "There is something wrong with your request.", Toast.LENGTH_LONG)
+                .show()
+            val intent = Intent(this, CoinErrorActivity::class.java)
+            startActivity(intent)
+        } else if (response?.code() == 401) {
+            Toast.makeText(this, "Your APIKey is wrong", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, CoinErrorActivity::class.java)
+            startActivity(intent)
+        } else if (response?.code() == 403) {
+            Toast.makeText(
+                this,
+                "Your API key doesnt't have enough privileges to access this resource",
+                Toast.LENGTH_LONG
+            ).show()
+            val intent = Intent(this, CoinErrorActivity::class.java)
+            startActivity(intent)
+        } else if (response?.code() == 429) {
+            Toast.makeText(this, "You have exceeded your API key rate limits", Toast.LENGTH_LONG)
+                .show()
+            val intent = Intent(this, CoinErrorActivity::class.java)
+            startActivity(intent)
+        } else if (response?.code() == 500) {
+            Toast.makeText(
+                this,
+                "You requested specific single item thatwedon't have at this",
+                Toast.LENGTH_LONG
+            ).show()
+            val intent = Intent(this, CoinErrorActivity::class.java)
+            startActivity(intent)
+        } else if (response?.body() != null) {
+            response.body()
+        }
+    }
+    override fun onFailure(call: retrofit2.Call<List<CoinItem>>?, t: Throwable?) {}
+*/
     private fun coinAndObserve() {
         coinViewModel.getCoinListFromRetrofit()
         coinViewModel.coinList.observe(this) { Coin ->

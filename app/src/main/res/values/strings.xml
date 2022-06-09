@@ -8,22 +8,33 @@
     <string name="ultima_hr">ultima hora</string>
     <string name="ultima_mes">ultima mes</string>
     <string name="ultima_ano">ultima ano</string>
-    <string name="botao_moedas_favoritas">Botão para listar moedas favoritas</string>
-    <string name="botao_lista_de_moedas">Botão para listar moedas</string>
     <string name="money">$</string>
-    <string name="description_coin">Informações das moedas</string>
     <string name="app_splash">Moeda Digital</string>
-
-    //Strings Content Description
-    <string name="moeda_digital">Moeda Digital</string>
-    <string name="data_atual">02/06/2022</string>
-    <string name="search_content">Pesquisar Moeda Digital</string>
-    <string name="valor_hora">$123.456.78</string>
-    <string name="valor_mes">$123.456.78</string>
-    <string name="valor_ano">$123.456.78</string>
     <string name="erro_texto">"Não foi dessa vez!"</string>
     <string name="string_button_tentar">Tente outra vez</string>
     <string name="string_msg_erro">ERRO!</string>
     <string name="favoritos">Favoritos</string>
     <string name="moedas">Moedas</string>
+    <string name="valor_hora">$123.456.78</string>
+    <string name="valor_mes">$123.456.78</string>
+    <string name="valor_ano">$123.456.78</string>
+    <string name="data_atual">02/06/2022</string>
+
+    //Strings Content Description
+    <string name="moeda_digital">Moeda Digital</string>
+    <string name="search_content">Pesquise sua moeda</string>
+    <string name="content_favoritos">Menu de Favoritos</string>
+    <string name="content_moedas">Menu de moedas</string>
+    <string name="content_button_adicionar">Adicionar ou Remover a moeda no seu favoritos.</string>
+    <string name="content_voltar_anterior">Voltar para a tela anterior</string>
+    <string name="contet_ultima_hr">Valor da moeda reference a ultima hora</string>
+    <string name="content_ultima_mes">Valor da moeda reference ao ultima mes</string>
+    <string name="content_ultima_ano">Valor da moeda reference ao ultima ano</string>
+    <string name="description_coin">Informações das moedas</string>
+    <string name="botao_moedas_favoritas">Botão para listar suas moedas favoritas</string>
+    <string name="botao_lista_de_moedas">Botão para listar todas as moedas</string>
+    <string name="content_volumes_neg">Segue abaixo os valores das Moedas nas últimas horas. mês e ano.</string>
+    <string name="content_button_tentar">Botão para tentar novamente.</string>
+    <string name="content_erro_texto">"Houve um erro! Aperte o botão abaixo para tentar novamente."</string>
+
 </resources>

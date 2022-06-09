@@ -13,6 +13,4 @@ interface IClientService {
     fun getBreeds(): Call<List<CoinItem>>
     @GET("$PATH_URL{assets_id}$API_KEY")
     fun getDetailsCoins(@Path("assets_id") coinId: String): Call<List<CoinItem>>
-    fun getList(@Query("$API_KEY") api: String): Call<List<CoinItem>>
-    abstract fun getList(): Call<List<CoinItem>>
 }
