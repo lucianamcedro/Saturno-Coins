@@ -6,6 +6,7 @@ import com.example.saturno_coins.domain.model.CoinItem
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface IClientService {
     @GET("$PATH_URL$API_KEY")

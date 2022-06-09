@@ -10,8 +10,7 @@ class ClientService {
 
         private fun getRetrofitInstance(): Retrofit {
             if (!Companion::retrofit.isInitialized) {
-                retrofit = Retrofit
-                    .Builder()
+                retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()

@@ -3,17 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/gklausan/AndroidStudioProjects/AppSaturno-Coins/app/src/main/res/drawable/splash_bg.xml" value="0.185" />
-        <entry key="..\:/Users/gklausan/AndroidStudioProjects/AppSaturno-Coins/app/src/main/res/layout/activity_coin_details.xml" value="0.1" />
-        <entry key="..\:/Users/gklausan/AndroidStudioProjects/AppSaturno-Coins/app/src/main/res/layout/activity_coin_favorites.xml" value="0.14990942028985507" />
-        <entry key="..\:/Users/gklausan/AndroidStudioProjects/AppSaturno-Coins/app/src/main/res/layout/activity_erro.xml" value="0.17255434782608695" />
-        <entry key="..\:/Users/gklausan/AndroidStudioProjects/AppSaturno-Coins/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/gklausan/AndroidStudioProjects/AppSaturno-Coins/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
-        <entry key="..\:/Users/gklausan/AndroidStudioProjects/AppSaturno-Coins/app/src/main/res/layout/coin_list_item.xml" value="0.39360222531293465" />
-        <entry key="..\:/Users/gklausan/AndroidStudioProjects/AppSaturno-Coins/app/src/main/res/layout/list_item_favorite_coin.xml" value="0.16168478260869565" />
-        <entry key="..\:/Users/gklausan/AndroidStudioProjects/AppSaturno-Coins/app/src/main/res/layout/teste.xml" value="0.12817028985507245" />
         <entry key="..\:/Users/lmonteic/Desktop/saturnocoins/app/src/main/res/layout/activity_coin_details.xml" value="0.1" />
         <entry key="..\:/Users/lmonteic/Desktop/saturnocoins/app/src/main/res/layout/activity_coin_favorites.xml" value="0.1" />
+        <entry key="..\:/Users/lmonteic/Desktop/saturnocoins/app/src/main/res/layout/activity_error.xml" value="0.11927083333333334" />
         <entry key="..\:/Users/lmonteic/Desktop/saturnocoins/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/lmonteic/Desktop/saturnocoins/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/lmonteic/Desktop/saturnocoins/app/src/main/res/layout/coin_list_item.xml" value="0.1" />
@@ -21,10 +13,5 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
